@@ -1,0 +1,70 @@
+﻿@model IEnumerable<IVEACore.Models.Farm>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table id="farm" class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NameFarm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstNameFarmer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastNameFarmer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AddressFarm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FarmExtention)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NameFarm)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstNameFarmer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastNameFarmer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AddressFarm)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FarmExtention)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id_Farm">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id_Farm">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id_Farm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#farm").DataTable();
+        });
+    </script>
+}

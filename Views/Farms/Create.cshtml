@@ -1,0 +1,54 @@
+﻿@model IVEACore.Models.Farm
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Farm</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NameFarm" class="control-label"></label>
+                <input asp-for="NameFarm" class="form-control" />
+                <span asp-validation-for="NameFarm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FirstNameFarmer" class="control-label"></label>
+                <input asp-for="FirstNameFarmer" class="form-control" />
+                <span asp-validation-for="FirstNameFarmer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastNameFarmer" class="control-label"></label>
+                <input asp-for="LastNameFarmer" class="form-control" />
+                <span asp-validation-for="LastNameFarmer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AddressFarm" class="control-label"></label>
+                <input asp-for="AddressFarm" class="form-control" />
+                <span asp-validation-for="AddressFarm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FarmExtention" class="control-label"></label>
+                <input asp-for="FarmExtention" class="form-control" />
+                <span asp-validation-for="FarmExtention" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
