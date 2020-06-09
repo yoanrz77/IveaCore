@@ -478,3 +478,8 @@ C:\Users\yoanr\source\repos\IVEACore\obj\Debug\netcoreapp3.1\Razor\Areas\Identit
 C:\Users\yoanr\source\repos\IVEACore\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Error.cshtml.g.cs
 C:\Users\yoanr\source\repos\IVEACore\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\yoanr\source\repos\IVEACore\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
+C:\Users\yoanr\source\repos\IVEACore\obj\Debug\netcoreapp3.1\Razor\Views\FarmSamplings\Create.cshtml.g.cs
+C:\Users\yoanr\source\repos\IVEACore\obj\Debug\netcoreapp3.1\Razor\Views\FarmSamplings\Delete.cshtml.g.cs
+C:\Users\yoanr\source\repos\IVEACore\obj\Debug\netcoreapp3.1\Razor\Views\FarmSamplings\Details.cshtml.g.cs
+C:\Users\yoanr\source\repos\IVEACore\obj\Debug\netcoreapp3.1\Razor\Views\FarmSamplings\Edit.cshtml.g.cs
+C:\Users\yoanr\source\repos\IVEACore\obj\Debug\netcoreapp3.1\Razor\Views\FarmSamplings\Index.cshtml.g.cs

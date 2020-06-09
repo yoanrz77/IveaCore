@@ -7,27 +7,25 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using IVEACore.Data;
 using IVEACore.Models;
-using Microsoft.AspNetCore.Authorization;
 
 namespace IVEACore.Controllers
 {
-    [Authorize]
-    public class FarmsController : Controller
+    public class FarmSamplingsController : Controller
     {
         private readonly IVEACoreContext _context;
 
-        public FarmsController(IVEACoreContext context)
+        public FarmSamplingsController(IVEACoreContext context)
         {
             _context = context;
         }
 
-        // GET: Farms
+        // GET: FarmSamplings
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Farm.ToListAsync());
+            return View(await _context.FarmSampling.ToListAsync());
         }
 
-        // GET: Farms/Details/5
+        // GET: FarmSamplings/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -35,39 +33,39 @@ namespace IVEACore.Controllers
                 return NotFound();
             }
 
-            var farm = await _context.Farm
-                .FirstOrDefaultAsync(m => m.Id_Farm == id);
-            if (farm == null)
+            var farmSampling = await _context.FarmSampling
+                .FirstOrDefaultAsync(m => m.Id_FamSampling == id);
+            if (farmSampling == null)
             {
                 return NotFound();
             }
 
-            return View(farm);
+            return View(farmSampling);
         }
 
-        // GET: Farms/Create
+        // GET: FarmSamplings/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Farms/Create
+        // POST: FarmSamplings/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id_Farm,NameFarm,FirstNameFarmer,LastNameFarmer,AddressFarm,FarmExtention")] Farm farm)
+        public async Task<IActionResult> Create([Bind("Id_FamSampling,Id_Farm,DateSampling,Details,Description_CFV,Value_CFV,Description_DAS,Value_DAS,Description_DFS,Value_DFS,Description_MPE,Value_MPE,Description_NCS,Value_NCS,Description_NES,Value_NES,Description_NRS,Value_NRS,Description_PES,Value_PES,Description_RCES,Value_RCES,Description_RCS,Value_RCS,Description_RES,Value_RES,Description_VBS,Value_VBS,Description_AF,Value_AF,AnimalsAmount")] FarmSampling farmSampling)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(farm);
+                _context.Add(farmSampling);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(farm);
+            return View(farmSampling);
         }
 
-        // GET: Farms/Edit/5
+        // GET: FarmSamplings/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -75,22 +73,22 @@ namespace IVEACore.Controllers
                 return NotFound();
             }
 
-            var farm = await _context.Farm.FindAsync(id);
-            if (farm == null)
+            var farmSampling = await _context.FarmSampling.FindAsync(id);
+            if (farmSampling == null)
             {
                 return NotFound();
             }
-            return View(farm);
+            return View(farmSampling);
         }
 
-        // POST: Farms/Edit/5
+        // POST: FarmSamplings/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id_Farm,NameFarm,FirstNameFarmer,LastNameFarmer,AddressFarm,FarmExtention")] Farm farm)
+        public async Task<IActionResult> Edit(int id, [Bind("Id_FamSampling,Id_Farm,DateSampling,Details,Description_CFV,Value_CFV,Description_DAS,Value_DAS,Description_DFS,Value_DFS,Description_MPE,Value_MPE,Description_NCS,Value_NCS,Description_NES,Value_NES,Description_NRS,Value_NRS,Description_PES,Value_PES,Description_RCES,Value_RCES,Description_RCS,Value_RCS,Description_RES,Value_RES,Description_VBS,Value_VBS,Description_AF,Value_AF,AnimalsAmount")] FarmSampling farmSampling)
         {
-            if (id != farm.Id_Farm)
+            if (id != farmSampling.Id_FamSampling)
             {
                 return NotFound();
             }
@@ -99,12 +97,12 @@ namespace IVEACore.Controllers
             {
                 try
                 {
-                    _context.Update(farm);
+                    _context.Update(farmSampling);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!FarmExists(farm.Id_Farm))
+                    if (!FarmSamplingExists(farmSampling.Id_FamSampling))
                     {
                         return NotFound();
                     }
@@ -115,10 +113,10 @@ namespace IVEACore.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(farm);
+            return View(farmSampling);
         }
 
-        // GET: Farms/Delete/5
+        // GET: FarmSamplings/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -126,49 +124,30 @@ namespace IVEACore.Controllers
                 return NotFound();
             }
 
-            var farm = await _context.Farm
-                .FirstOrDefaultAsync(m => m.Id_Farm == id);
-            if (farm == null)
+            var farmSampling = await _context.FarmSampling
+                .FirstOrDefaultAsync(m => m.Id_FamSampling == id);
+            if (farmSampling == null)
             {
                 return NotFound();
             }
 
-            return View(farm);
+            return View(farmSampling);
         }
 
-        // POST: Farms/Delete/5
+        // POST: FarmSamplings/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var farm = await _context.Farm.FindAsync(id);
-            _context.Farm.Remove(farm);
+            var farmSampling = await _context.FarmSampling.FindAsync(id);
+            _context.FarmSampling.Remove(farmSampling);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool FarmExists(int id)
+        private bool FarmSamplingExists(int id)
         {
-            return _context.Farm.Any(e => e.Id_Farm == id);
+            return _context.FarmSampling.Any(e => e.Id_FamSampling == id);
         }
-
-        ////Getting fild values to calculate the Index
-        //public string GetFarmFieldValues(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        //return NotFound();
-        //    }
-
-        //    var farm = _context.Farm.FirstOrDefault(m => m.Id_Farm == id);
-        //    string MynameFarm = farm.NameFarm;
-
-        //    if (farm == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return View(MynameFarm);
-        //}
     }
 }

@@ -1,0 +1,210 @@
+﻿@model IEnumerable<IVEACore.Models.FarmSampling>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id_Farm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateSampling)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Details)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description_CFV)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Value_CFV)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description_DAS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Value_DAS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description_DFS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Value_DFS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description_MPE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Value_MPE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description_NCS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Value_NCS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description_NES)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Value_NES)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description_NRS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Value_NRS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description_PES)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Value_PES)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description_RCES)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Value_RCES)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description_RCS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Value_RCS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description_RES)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Value_RES)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description_VBS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Value_VBS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description_AF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Value_AF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnimalsAmount)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id_Farm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateSampling)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Details)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description_CFV)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Value_CFV)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description_DAS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Value_DAS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description_DFS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Value_DFS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description_MPE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Value_MPE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description_NCS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Value_NCS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description_NES)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Value_NES)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description_NRS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Value_NRS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description_PES)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Value_PES)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description_RCES)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Value_RCES)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description_RCS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Value_RCS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description_RES)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Value_RES)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description_VBS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Value_VBS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description_AF)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Value_AF)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnimalsAmount)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id_FamSampling">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id_FamSampling">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id_FamSampling">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

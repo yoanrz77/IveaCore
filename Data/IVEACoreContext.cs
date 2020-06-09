@@ -9,10 +9,15 @@ namespace IVEACore.Data
 {
     public class IVEACoreContext : IdentityDbContext
     {
+        public IVEACoreContext()
+        {
+        }
+
         public IVEACoreContext(DbContextOptions<IVEACoreContext> options)
             : base(options)
         {
         }
         public DbSet<IVEACore.Models.Farm> Farm { get; set; }
+        public DbSet<IVEACore.Models.FarmSampling> FarmSampling { get; set; }
     }
 }

@@ -4,14 +4,16 @@ using IVEACore.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace IVEACore.Data.Migrations
 {
     [DbContext(typeof(IVEACoreContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200609033231_addValidationsFarmToDb")]
+    partial class addValidationsFarmToDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -52,136 +54,6 @@ namespace IVEACore.Data.Migrations
                     b.HasKey("Id_Farm");
 
                     b.ToTable("Farm");
-                });
-
-            modelBuilder.Entity("IVEACore.Models.FarmSampling", b =>
-                {
-                    b.Property<int>("Id_FamSampling")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("AnimalsAmount")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("DateSampling")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description_AF")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(255)")
-                        .HasMaxLength(255);
-
-                    b.Property<string>("Description_CFV")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(255)")
-                        .HasMaxLength(255);
-
-                    b.Property<string>("Description_DAS")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(255)")
-                        .HasMaxLength(255);
-
-                    b.Property<string>("Description_DFS")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(255)")
-                        .HasMaxLength(255);
-
-                    b.Property<string>("Description_MPE")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(255)")
-                        .HasMaxLength(255);
-
-                    b.Property<string>("Description_NCS")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(255)")
-                        .HasMaxLength(255);
-
-                    b.Property<string>("Description_NES")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(255)")
-                        .HasMaxLength(255);
-
-                    b.Property<string>("Description_NRS")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(255)")
-                        .HasMaxLength(255);
-
-                    b.Property<string>("Description_PES")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(255)")
-                        .HasMaxLength(255);
-
-                    b.Property<string>("Description_RCES")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(255)")
-                        .HasMaxLength(255);
-
-                    b.Property<string>("Description_RCS")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(255)")
-                        .HasMaxLength(255);
-
-                    b.Property<string>("Description_RES")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(255)")
-                        .HasMaxLength(255);
-
-                    b.Property<string>("Description_VBS")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(255)")
-                        .HasMaxLength(255);
-
-                    b.Property<string>("Details")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(255)")
-                        .HasMaxLength(255);
-
-                    b.Property<int>("Id_Farm")
-                        .HasColumnType("int");
-
-                    b.Property<float>("Value_AF")
-                        .HasColumnType("real");
-
-                    b.Property<float>("Value_CFV")
-                        .HasColumnType("real");
-
-                    b.Property<float>("Value_DAS")
-                        .HasColumnType("real");
-
-                    b.Property<float>("Value_DFS")
-                        .HasColumnType("real");
-
-                    b.Property<float>("Value_MPE")
-                        .HasColumnType("real");
-
-                    b.Property<float>("Value_NCS")
-                        .HasColumnType("real");
-
-                    b.Property<float>("Value_NES")
-                        .HasColumnType("real");
-
-                    b.Property<float>("Value_NRS")
-                        .HasColumnType("real");
-
-                    b.Property<float>("Value_PES")
-                        .HasColumnType("real");
-
-                    b.Property<float>("Value_RCES")
-                        .HasColumnType("real");
-
-                    b.Property<float>("Value_RCS")
-                        .HasColumnType("real");
-
-                    b.Property<float>("Value_RES")
-                        .HasColumnType("real");
-
-                    b.Property<float>("Value_VBS")
-                        .HasColumnType("real");
-
-                    b.HasKey("Id_FamSampling");
-
-                    b.ToTable("FarmSampling");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
