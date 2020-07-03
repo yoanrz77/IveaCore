@@ -3,13 +3,8 @@ using IVEACore.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-using Rotativa.AspNetCore;
-using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
@@ -60,10 +55,10 @@ namespace IVEACore.Controllers
                 //List of values for each indicator 
                 var ValueList = new List<int>() { 1,2,3,4,5,6,7,8,9};
                 
-                //Filtering the values  
-                var ValueListFiltered = ValueList.Where(v => v <= 3);
+                ////Filtering the values  
+                //var ValueListFiltered = ValueList.Where(v => v <= 3);
 
-                ViewBag.CFV_Value = new SelectList(ValueListFiltered);
+                ViewBag.CFV_Value = new SelectList(ValueList);
             }
             else
             {

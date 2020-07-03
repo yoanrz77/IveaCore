@@ -15,9 +15,9 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Id_Farm" class="control-label"></label>
-
-                @Html.DropDownList("Id_Farm", "Select Farm") 
-
+                
+                @Html.DropDownList("Id_Farm", null ,new { @class = "form-control" })
+                @*@Html.DropDownListFor(model => model.City, ViewBag.CityList as SelectList, new { @class = "form-control" })*@
                 @*<input asp-for="Id_Farm" class="form-control" />*@
                 <span asp-validation-for="Id_Farm" class="text-danger"></span>
             </div>
@@ -40,7 +40,7 @@
             <div class="form-group">
                 <label asp-for="Value_CFV" class="control-label"></label>
             
-                @Html.DropDownList("CFV_Value", "Select Value")
+                @Html.DropDownList("CFV_Value", null, new { @class = "form-control" })
                 @*<input asp-for="Value_CFV" class="form-control" />*@
                 
                 <span asp-validation-for="Value_CFV" class="text-danger"></span>
