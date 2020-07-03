@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using IVEACore.Data;
+﻿using IVEACore.Data;
 using IVEACore.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Rotativa.AspNetCore;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace IVEACore.Controllers
 {
@@ -152,23 +150,11 @@ namespace IVEACore.Controllers
             return _context.Farm.Any(e => e.Id_Farm == id);
         }
 
-        ////Getting fild values to calculate the Index
-        //public string GetFarmFieldValues(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        //return NotFound();
-        //    }
-
-        //    var farm = _context.Farm.FirstOrDefault(m => m.Id_Farm == id);
-        //    string MynameFarm = farm.NameFarm;
-
-        //    if (farm == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return View(MynameFarm);
-        //}
+        //Printing the view to PDF.
+        public ActionResult PrintFarmPDF()
+        {
+            var farm = _context.Farm.ToList();
+            return new ViewAsPdf(farm);
+        }
     }
 }

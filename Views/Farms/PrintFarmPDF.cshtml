@@ -1,0 +1,58 @@
+﻿@model IEnumerable<IVEACore.Models.Farm>
+
+@{
+    ViewData["Title"] = "Report";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Report List of Farms</h1>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id_Farm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NameFarm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstNameFarmer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastNameFarmer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AddressFarm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FarmExtention) (ha)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id_Farm)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NameFarm)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstNameFarmer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastNameFarmer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AddressFarm)
+                </td>
+                <td align="center">
+                    @Html.DisplayFor(modelItem => item.FarmExtention)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -3,11 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - IVEA</title>
+    <title>@ViewData["Title"] IVEA</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 
-    @*This link belong to Datatable Local Configuration*@
+    @*This link belong to Datatable using local configuration*@
     <link rel="stylesheet" type="text/css" href="~/dataTable/datatables.min.css" />
 
 </head>
@@ -36,6 +36,9 @@
                                 @*<a class="dropdown-item" href="#">Action</a>*@
                                 <a class="dropdown-item" asp-area="" asp-controller="Farms" asp-action="Index">Farm</a>
                                 <a class="dropdown-item" asp-area="" asp-controller="FarmSamplings" asp-action="Index">Farm Sampling</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Indicators" asp-action="Index">Indicador</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="IndicatorSpecificities" asp-action="Index">Indicador Specificities</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="FarmAndFarmSamplings" asp-action="Ivea">Ivea</a>
                                 <a class="dropdown-item" href="#">Another action</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">Something else here</a>

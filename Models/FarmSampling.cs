@@ -133,5 +133,9 @@ namespace IVEACore.Models
         [Required]
         [DisplayName("Amount of Animals")]
         public int AnimalsAmount { get; set; }
+
+        [DefaultValue(0)]
+        [DisplayName("IVEA")]
+        public float IVEA { get; set; }
     }
 }

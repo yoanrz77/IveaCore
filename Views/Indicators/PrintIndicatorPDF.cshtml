@@ -1,0 +1,28 @@
+﻿@model IEnumerable<IVEACore.Models.Indicator>
+
+@{
+    ViewData["Title"] = "Report";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Indicator</h1>
+
+<table id="indicator" class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NameIndicator)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NameIndicator)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

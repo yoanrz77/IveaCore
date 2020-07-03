@@ -17,7 +17,10 @@ namespace IVEACore.Data
             : base(options)
         {
         }
-        public DbSet<IVEACore.Models.Farm> Farm { get; set; }
-        public DbSet<IVEACore.Models.FarmSampling> FarmSampling { get; set; }
+        public DbSet<Farm> Farm { get; set; }
+        public DbSet<FarmSampling> FarmSampling { get; set; }
+        public DbSet<Indicator> Indicator { get; set; }
+        public DbSet<IndicatorSpecificity> IndicatorSpecificity { get; set; }
+
     }
 }

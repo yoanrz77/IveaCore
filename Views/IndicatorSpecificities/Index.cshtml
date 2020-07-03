@@ -1,0 +1,53 @@
+﻿@model IEnumerable<IVEACore.Models.IndicatorSpecificity>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Indicator Specificity</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table id="indicatorSpecificity" class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id_Indicator)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Specificity)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) 
+{
+    <tr>
+        <td style="width:110px" class="dt-center">
+            @Html.DisplayFor(modelItem => item.Id_Indicator)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Specificity)
+        </td>
+        <td style="width:150px">
+            <a asp-action="Edit" asp-route-id="@item.Id_IndicatorSpecificity">Edit</a> |
+            <a asp-action="Details" asp-route-id="@item.Id_IndicatorSpecificity">Details</a> |
+            <a asp-action="Delete" asp-route-id="@item.Id_IndicatorSpecificity">Delete</a>
+        </td>
+    </tr>
+}
+    </tbody>
+</table>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#indicatorSpecificity").DataTable();
+        });
+
+    </script>
+}

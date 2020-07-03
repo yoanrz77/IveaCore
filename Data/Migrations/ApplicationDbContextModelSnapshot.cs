@@ -137,6 +137,9 @@ namespace IVEACore.Data.Migrations
                         .HasColumnType("nvarchar(255)")
                         .HasMaxLength(255);
 
+                    b.Property<float>("IVEA")
+                        .HasColumnType("real");
+
                     b.Property<int>("Id_Farm")
                         .HasColumnType("int");
 
@@ -182,6 +185,43 @@ namespace IVEACore.Data.Migrations
                     b.HasKey("Id_FamSampling");
 
                     b.ToTable("FarmSampling");
+                });
+
+            modelBuilder.Entity("IVEACore.Models.Indicator", b =>
+                {
+                    b.Property<int>("Id_Indicator")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("NameIndicator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
+
+                    b.HasKey("Id_Indicator");
+
+                    b.ToTable("Indicator");
+                });
+
+            modelBuilder.Entity("IVEACore.Models.IndicatorSpecificity", b =>
+                {
+                    b.Property<int>("Id_IndicatorSpecificity")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Id_Indicator")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Specificity")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
+
+                    b.HasKey("Id_IndicatorSpecificity");
+
+                    b.ToTable("IndicatorSpecificity");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

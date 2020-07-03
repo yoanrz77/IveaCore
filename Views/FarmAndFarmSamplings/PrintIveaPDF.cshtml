@@ -1,0 +1,48 @@
+﻿@model IEnumerable<IVEACore.Models.FarmAndFarmSamplingsViewModel>
+
+<h1>IVEA Index by Farm</h1>
+<br />
+<table id="ivea" class="table">
+    <thead>
+        <tr>
+            <th>
+                Farm Name
+            </th>
+            <th>
+                Date
+            </th>
+            <th>
+                First Name Farmer
+            </th>
+            <th>
+                Last Name Farmer
+            </th>
+            <th>
+                Ivea
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FarmName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateSampling)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstNameFarmer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastNameFarmer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ivea)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

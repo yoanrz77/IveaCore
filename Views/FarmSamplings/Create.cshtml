@@ -7,7 +7,7 @@
 
 <h1>Create</h1>
 
-<h4>FarmSampling</h4>
+<h4>Farm Sampling</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -15,9 +15,13 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Id_Farm" class="control-label"></label>
-                <input asp-for="Id_Farm" class="form-control" />
+
+                @Html.DropDownList("Id_Farm", "Select Farm") 
+
+                @*<input asp-for="Id_Farm" class="form-control" />*@
                 <span asp-validation-for="Id_Farm" class="text-danger"></span>
             </div>
+            
             <div class="form-group">
                 <label asp-for="DateSampling" class="control-label"></label>
                 <input asp-for="DateSampling" class="form-control" />
@@ -35,7 +39,10 @@
             </div>
             <div class="form-group">
                 <label asp-for="Value_CFV" class="control-label"></label>
-                <input asp-for="Value_CFV" class="form-control" />
+            
+                @Html.DropDownList("CFV_Value", "Select Value")
+                @*<input asp-for="Value_CFV" class="form-control" />*@
+                
                 <span asp-validation-for="Value_CFV" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -164,6 +171,12 @@
                 <span asp-validation-for="AnimalsAmount" class="text-danger"></span>
             </div>
             <div class="form-group">
+                @*<label asp-for="IVEA" class="control-label"></label>*@
+                <input type="hidden" asp-for="IVEA" class="form-control" value=0 />
+                <span asp-validation-for="IVEA" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
@@ -176,4 +189,5 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
 }
