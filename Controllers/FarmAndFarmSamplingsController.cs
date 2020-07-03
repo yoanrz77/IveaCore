@@ -70,44 +70,5 @@ namespace IVEACore.Controllers
             }
             return new ViewAsPdf(result);
         }
-
-        // GET: /Home/
-        //public ActionResult Ivea()
-        //{
-        //    FarmAndFarmSamplingViewModel vm = new FarmAndFarmSamplingViewModel();
-        //    vm.Farm = GetQueryFarm();
-        //    //vm.FarmSamplings = GetQueryFarmSampling();
-
-        //    return View(vm); //pass it into the page
-        //}
-
-        //string GetQueryFarm()
-        //{
-        //    DataTable data = GetDataFromQuery("SELECT * FROM Farm");
-        //    string myData = data.ToString();
-        //    return myData;
-        //}
-
-        ////string[] GetQueryFarmSampling()
-        ////{
-        ////    DataTable data = GetDataFromQuery("SELECT * FROM FarmSampling");
-
-        ////    //DataTable data = GetDataFromQuery("SELECT Farm.Id_Farm, FarmSampling.Id_FamSampling, FarmSampling.DateSampling, farm.FirstNameFarmer, " +
-        ////    //"Farm.LastNameFarmer, Farm.NameFarm, Farm.FarmExtention, FarmSampling.IVEA FROM FarmSampling " +
-        ////    //"LEFT JOIN Farm ON FarmSampling.Id_Farm = Farm.Id_Farm ORDER BY Farm.Id_Farm");
-        ////    ////convert the data into a string[] and return it
-
-        ////    return data;
-        ////}
-
-        //DataTable GetDataFromQuery(string query)
-        //{
-        //    //var MyConntection = _context.Database.GetDbConnection();
-        //    string MyConntection = "Server=(localdb)\\mssqllocaldb;Database=aspnet-IVEACore-EF8713C6-08D9-4DE7-B368-9E8C9A515468;Trusted_Connection=True;MultipleActiveResultSets=true";
-        //    SqlDataAdapter adap = new SqlDataAdapter(query, MyConntection);
-        //    DataTable data = new DataTable();
-        //    adap.Fill(data);
-        //    return data;
-        //}
     }
 }

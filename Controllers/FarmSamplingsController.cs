@@ -1,11 +1,12 @@
 ﻿using IVEACore.Data;
+using IVEACore.IveaFunctions;
 using IVEACore.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -46,17 +47,14 @@ namespace IVEACore.Controllers
         }
 
         //Defining values to use in the dropdownlists
-        private void SetFarmSamplingsViewBag(int? Id_Farm = null)
+        private void SetFarmSamplingsViewBag(int? Id_Farm)
         {
             if (Id_Farm == null)
             {
                 ViewBag.Id_Farm = new SelectList(_context.Farm, "Id_Farm", "NameFarm");
 
-                //List of values for each indicator 
-                var ValueList = new List<int>() { 1,2,3,4,5,6,7,8,9};
-                
-                ////Filtering the values  
-                //var ValueListFiltered = ValueList.Where(v => v <= 3);
+                GetDropDownListValues getDropDownListValues = new GetDropDownListValues();
+                var ValueList = getDropDownListValues.GetLevel1();
 
                 ViewBag.CFV_Value = new SelectList(ValueList);
             }
@@ -69,13 +67,9 @@ namespace IVEACore.Controllers
         // GET: FarmSamplings/Create
         public IActionResult Create()
         {
-            //FarmSampling fs = new FarmSampling();
-            //int af = Convert.ToInt32(fs.Description_AF);
-            //int cfv =Convert.ToInt32(fs.Description_CFV);
-            //IveaIndex iveaIndex = new IveaIndex();
-            //ViewBag.IVEA = iveaIndex.CalculateIvea(af,cfv);
+            
+            SetFarmSamplingsViewBag(null);
 
-            SetFarmSamplingsViewBag();
             return View();
         }
 
@@ -89,14 +83,6 @@ namespace IVEACore.Controllers
             "Value_NRS,Description_PES,Value_PES,Description_RCES,Value_RCES,Description_RCS,Value_RCS,Description_RES,Value_RES,Description_VBS," +
             "Value_VBS,Description_AF,Value_AF,AnimalsAmount,IVEA")] FarmSampling farmSampling)
         {
-            ////***Here
-            //IveaIndex iveaIndex = new IveaIndex(_context);
-            //var IndexVal = iveaIndex.CalculateIvea(farmSampling.Id_FamSampling);
-
-            //***Here
-            //FarmSampling fs = new FarmSampling();
-            //fs.IVEA = IndexVal;
-
             if (ModelState.IsValid)
             {
                 IveaIndex iveaIndex = new IveaIndex();
@@ -128,6 +114,8 @@ namespace IVEACore.Controllers
                 return NotFound();
             }
 
+            SetFarmSamplingsViewBag(id);
+
             return View(farmSampling);
         }
 
@@ -150,6 +138,7 @@ namespace IVEACore.Controllers
             {
                 try
                 {
+                    //Calculating the IveaIndex
                     IveaIndex iveaIndex = new IveaIndex();
                     var IndexVal = iveaIndex.CalculateIvea(farmSampling.Value_CFV, farmSampling.Value_DAS, farmSampling.Value_DFS,
                                     farmSampling.Value_MPE, farmSampling.Value_NCS, farmSampling.Value_NES, farmSampling.Value_NRS,
@@ -191,7 +180,7 @@ namespace IVEACore.Controllers
             {
                 return NotFound();
             }
-
+            
             return View(farmSampling);
         }
 
@@ -215,41 +204,12 @@ namespace IVEACore.Controllers
         public ActionResult FarmSamplingsPDF()
         {
             var farmSampling = _context.FarmSampling.ToList();
-            return new Rotativa.AspNetCore.ViewAsPdf(farmSampling);
-            //{
-            //    PageSize = Rotativa.AspNetCore.Options.Size.A3,  
-            //};
-            //  {
-            //      CustomSwitches =
-            //  "--footer-center \"  Created Date: " +
-            //DateTime.Now.Date.ToString("dd/MM/yyyy") + "  Page: [page]/[toPage]\"" +
-            //" --footer-line --footer-font-size \"12\" --footer-spacing 1 --footer-font-name \"Segoe UI\""
-            //  };
+            return new Rotativa.AspNetCore.ViewAsPdf(farmSampling)
+            {
+                CustomSwitches = "--footer-center \"  Created Date: " +
+                                DateTime.Now.Date.ToString("dd/MM/yyyy") + "  Page: [page]/[toPage]\"" +
+                                " --footer-line --footer-font-size \"12\" --footer-spacing 1 --footer-font-name \"Segoe UI\""
+            };
         }
-
-        //// GET: FarmSamplings/Edit/5
-        //public async Task<IActionResult> CalcIveaIndex(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    var farmSampling = await _context.FarmSampling.FindAsync(id);
-
-        //    //***Here
-        //    IveaIndex iveaIndex = new IveaIndex(_context);
-        //    var IndexVal = iveaIndex.CalculateIvea(farmSampling.Id_FamSampling);
-
-        //    farmSampling.IVEA = IndexVal;
-        //    if (farmSampling == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return View(farmSampling);
-        //}
-
-
-
     }
 }

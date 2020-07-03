@@ -16,6 +16,9 @@
             <input type="hidden" asp-for="Id_FamSampling" />
             <div class="form-group">
                 <label asp-for="Id_Farm" class="control-label"></label>
+                
+               @* @Html.DropDownList("Id_Farm",null, "-- Select --" , new { @class = "form-control" })*@
+
                 <input asp-for="Id_Farm" class="form-control" />
                 <span asp-validation-for="Id_Farm" class="text-danger"></span>
             </div>
