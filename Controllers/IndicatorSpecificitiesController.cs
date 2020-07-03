@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Rotativa.AspNetCore;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -163,5 +164,13 @@ namespace IVEACore.Controllers
         {
             return _context.IndicatorSpecificity.Any(e => e.Id_IndicatorSpecificity == id);
         }
+
+        //Printing the view to PDF.
+        public ActionResult PrintIndicatorSpecificitiesPDF()
+        {
+            var indicatorSpecificities = _context.IndicatorSpecificity.ToList();
+            return new ViewAsPdf(indicatorSpecificities);
+        }
+
     }
 }

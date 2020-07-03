@@ -8,59 +8,61 @@
 <h1>Report Farm Sampling</h1>
 
 <table id="farmSampling" class="table">
+    
     @*<thead>
-        <tr>
-           <th>Descriptions</th>
-        </tr>
-    </thead>*@
+            <tr>
+               <th>Descriptions</th>
+            </tr>
+        </thead>*@
     <tbody>
         @foreach (var item in Model)
         {
             <tr>
                 <td align="left" style="width:900px">
+                    <br />
                     <b>@Html.DisplayNameFor(model => model.Id_Farm):</b> @Html.DisplayFor(modelItem => item.Id_Farm)<br />
                     <b>@Html.DisplayNameFor(model => model.DateSampling):</b> @Html.DisplayFor(modelItem => item.DateSampling)<br />
                     <b>@Html.DisplayNameFor(model => model.Details):</b> @Html.DisplayFor(modelItem => item.Details)<br />
                     <hr />
                     <b>Description CFV:</b> @Html.DisplayFor(modelItem => item.Description_CFV)<br />
                     <b>Value CFV:</b> @Html.DisplayFor(modelItem => item.Value_CFV)<br />
-                   
+
                     <b>Description DAS:</b> @Html.DisplayFor(modelItem => item.Description_DAS)<br />
                     <b>Value DAS:</b> @Html.DisplayFor(modelItem => item.Value_DAS)<br />
-                   
+
                     <b>Description DFS:</b> @Html.DisplayFor(modelItem => item.Description_DFS)<br />
                     <b>Value DFS:</b> @Html.DisplayFor(modelItem => item.Value_DFS)<br />
-                  
+
                     <b>Description MPE:</b> @Html.DisplayFor(modelItem => item.Description_MPE)<br />
                     <b>Value MPE:</b> @Html.DisplayFor(modelItem => item.Value_MPE)<br />
-                    
+
                     <b>Description NCS:</b> @Html.DisplayFor(modelItem => item.Description_NCS)<br />
                     <b>Value NCS:</b> @Html.DisplayFor(modelItem => item.Value_NCS)<br />
-                    
+
                     <b>Description NES:</b> @Html.DisplayFor(modelItem => item.Description_NES)<br />
                     <b>Value NES:</b> @Html.DisplayFor(modelItem => item.Value_NES)<br />
-                    
+
                     <b>Description NRS:</b> @Html.DisplayFor(modelItem => item.Description_NRS)<br />
                     <b>Value NRS:</b> @Html.DisplayFor(modelItem => item.Value_NRS)<br />
-                   
+
                     <b>Description PES:</b> @Html.DisplayFor(modelItem => item.Description_PES)<br />
                     <b>Value PES:</b> @Html.DisplayFor(modelItem => item.Value_PES)<br />
-                  
+
                     <b>Description RCES:</b> @Html.DisplayFor(modelItem => item.Description_RCES)<br />
                     <b>Value_RCES:</b> @Html.DisplayFor(modelItem => item.Value_RCES)<br />
-                   
+
                     <b>Description RCS:</b> @Html.DisplayFor(modelItem => item.Description_RCS)<br />
                     <b>Value RCS:</b> @Html.DisplayFor(modelItem => item.Value_RCS)<br />
-                 
+
                     <b>Description RES:</b> @Html.DisplayFor(modelItem => item.Description_RES)<br />
                     <b>Value RES:</b> @Html.DisplayFor(modelItem => item.Value_RES)<br />
-                
+
                     <b>Description VBS:</b> @Html.DisplayFor(modelItem => item.Description_VBS)<br />
                     <b>Value_VBS:</b> @Html.DisplayFor(modelItem => item.Value_VBS)<br />
-                   
+
                     <b>Description AF:</b> @Html.DisplayFor(modelItem => item.Description_AF)<br />
                     <b>Value AF:</b> @Html.DisplayFor(modelItem => item.Value_AF)<br />
-                  
+
                     <b>Animals Amount:</b> @Html.DisplayFor(modelItem => item.Description_AF)<br />
                     <b>Value Animals Amount:</b>@Html.DisplayFor(modelItem => item.AnimalsAmount)<br />
                     <hr Color="Blue" />
