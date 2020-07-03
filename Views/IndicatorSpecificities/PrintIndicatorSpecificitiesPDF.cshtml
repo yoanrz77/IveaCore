@@ -8,21 +8,21 @@
 <h1>Indicator Specificities</h1>
 
 <table id="indicatorSpecificity" class="table">
-    <thead>
-        <tr>
+    @*<thead>
+        <tr>*@
             <th>
                 @Html.DisplayNameFor(model => model.Id_Indicator)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Specificity)
             </th>
-        </tr>
-    </thead>
+        @*</tr>
+    </thead>*@
     <tbody>
         @foreach (var item in Model)
         {
             <tr>
-                <td style="width:110px" class="dt-center">
+                <td align="center" style="width:110px">
                     @Html.DisplayFor(modelItem => item.Id_Indicator)
                 </td>
                 <td>
