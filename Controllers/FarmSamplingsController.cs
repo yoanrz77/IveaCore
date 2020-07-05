@@ -53,6 +53,10 @@ namespace IVEACore.Controllers
             {
                 ViewBag.Id_Farm = new SelectList(_context.Farm, "Id_Farm", "NameFarm");
 
+                var indicatorSpecificity = _context.IndicatorSpecificity.Where(e => e.Id_Indicator == 8).ToList();
+
+                ViewBag.Description_CFV = new SelectList(indicatorSpecificity, "Specificity", "Specificity");
+
                 GetDropDownListValues getDropDownListValues = new GetDropDownListValues();
                 var ValueList = getDropDownListValues.GetLevel1();
 

@@ -15,34 +15,39 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Id_Farm" class="control-label"></label>
-                
-                @Html.DropDownList("Id_Farm", null , "-- Select --",new { @class = "form-control" })
-                @*@Html.DropDownListFor(model => model.City, ViewBag.CityList as SelectList, new { @class = "form-control" })*@
+                @*//This work ok*@
+                @*@Html.DropDownList("Id_Farm", null , "-- Select --",new { @class = "form-control" })*@
+                @*//This work ok*@
+                @Html.DropDownListFor(model => model.Id_Farm, ViewBag.Id_Farm as SelectList, "-- Select --", new { @class = "form-control" })
                 @*<input asp-for="Id_Farm" class="form-control" />*@
                 <span asp-validation-for="Id_Farm" class="text-danger"></span>
             </div>
-            
+
             <div class="form-group">
                 <label asp-for="DateSampling" class="control-label"></label>
                 <input asp-for="DateSampling" class="form-control" />
                 <span asp-validation-for="DateSampling" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="Details" class="control-label"></label>
                 <input asp-for="Details" class="form-control" />
                 <span asp-validation-for="Details" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="Description_CFV" class="control-label"></label>
-                <input asp-for="Description_CFV" class="form-control" />
+                @Html.DropDownListFor(model => model.Description_CFV, ViewBag.Description_CFV as SelectList, "-- Select --", new { @class = "form-control", @onChange = "SelectedValue(this)" })
+                @*<input asp-for="Description_CFV" class="form-control" />*@
                 <span asp-validation-for="Description_CFV" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="Value_CFV" class="control-label"></label>
-            
-                @Html.DropDownList("CFV_Value", null, new { @class = "form-control" })
-                @*<input asp-for="Value_CFV" class="form-control" />*@
-                
+                <div id="CFV_Value">
+                    @Html.DropDownList("CFV_Value", null, new { @class = "form-control" })
+                    @*<input asp-for="Value_CFV" class="form-control" />*@
+                </div>
                 <span asp-validation-for="Value_CFV" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -188,6 +193,24 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 
+    <script>
+        //To get selected Index, value an text of dropdownlist
+        function SelectedValue(ddlObject) {
+            //Selected value of dropdownlist
+            var selectedValue = ddlObject.value;
+            //Selected index of dropdownlist
+            var selectedIndex = ddlObject.selectedIndex;
+            //Selected text of dropdownlist
+            var selectedText = ddlObject.options[ddlObject.selectedIndex].innerHTML;
+            //Loading a link depending on the selected value
+            if (selectedIndex > 2) {
+                location.href = "https://www.google.ca/";
+            }
+            //alert popup with detail of seleceted value and text
+            alert(" Selected Index: " + selectedIndex + " |**| " + " Selected Value: " + selectedValue + " |**| " + "Selected Text: " + selectedText);
+        }
+    </script>
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
