@@ -137,5 +137,12 @@ namespace IVEACore.Models
         [DefaultValue(0)]
         [DisplayName("IVEA")]
         public float IVEA { get; set; }
+
+        public double IndexValue { get 
+            { 
+                return Math.Round((Value_CFV + Value_DAS + Value_DFS + Value_MPE + Value_NCS + Value_NES + 
+                    Value_NRS + Value_PES + Value_RCES + Value_RCS + Value_RES + Value_VBS + Value_AF / 13) / 100,2);
+            }
+        }
     }
 }

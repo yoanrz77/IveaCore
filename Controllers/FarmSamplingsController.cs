@@ -89,13 +89,7 @@ namespace IVEACore.Controllers
         {
             if (ModelState.IsValid)
             {
-                IveaIndex iveaIndex = new IveaIndex();
-                var IndexVal = iveaIndex.CalculateIvea(farmSampling.Value_CFV, farmSampling.Value_DAS, farmSampling.Value_DFS,
-                                farmSampling.Value_MPE, farmSampling.Value_NCS, farmSampling.Value_NES, farmSampling.Value_NRS,
-                                farmSampling.Value_PES, farmSampling.Value_RCES, farmSampling.Value_RCS, farmSampling.Value_RES,
-                                farmSampling.Value_VBS, farmSampling.Value_AF);
-                
-                farmSampling.IVEA = IndexVal;
+                farmSampling.IVEA = (float)farmSampling.IndexValue;
 
                 _context.Add(farmSampling);
                 await _context.SaveChangesAsync();
@@ -142,14 +136,7 @@ namespace IVEACore.Controllers
             {
                 try
                 {
-                    //Calculating the IveaIndex
-                    IveaIndex iveaIndex = new IveaIndex();
-                    var IndexVal = iveaIndex.CalculateIvea(farmSampling.Value_CFV, farmSampling.Value_DAS, farmSampling.Value_DFS,
-                                    farmSampling.Value_MPE, farmSampling.Value_NCS, farmSampling.Value_NES, farmSampling.Value_NRS,
-                                    farmSampling.Value_PES, farmSampling.Value_RCES, farmSampling.Value_RCS, farmSampling.Value_RES,
-                                    farmSampling.Value_VBS, farmSampling.Value_AF);
-
-                    farmSampling.IVEA = IndexVal;
+                    farmSampling.IVEA = (float)farmSampling.IndexValue;
 
                     _context.Update(farmSampling);
                     await _context.SaveChangesAsync();
