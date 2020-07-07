@@ -138,6 +138,7 @@ namespace IVEACore.Models
         [DisplayName("IVEA")]
         public float IVEA { get; set; }
 
+        //Calculated field for IveaIndex
         public double IndexValue { get 
             { 
                 return Math.Round((Value_CFV + Value_DAS + Value_DFS + Value_MPE + Value_NCS + Value_NES + 

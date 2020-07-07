@@ -47,15 +47,25 @@ namespace IVEACore.Controllers
         }
 
         //Defining values to use in the dropdownlists
-        private void SetFarmSamplingsViewBag(int? Id_Farm)
+        private void SetFarmSamplingsViewBag(int? id)
         {
-            if (Id_Farm == null)
+            if (id == null)
             {
                 ViewBag.Id_Farm = new SelectList(_context.Farm, "Id_Farm", "NameFarm");
-
-                var indicatorSpecificity = _context.IndicatorSpecificity.Where(e => e.Id_Indicator == 8).ToList();
-
-                ViewBag.Description_CFV = new SelectList(indicatorSpecificity, "Specificity", "Specificity");
+                ViewBag.Description_CFV = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 8).ToList(), "Specificity", "Specificity");
+                ViewBag.Description_DAS = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 4).ToList(), "Specificity", "Specificity");
+                ViewBag.Description_DFS = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 5).ToList(), "Specificity", "Specificity");
+                ViewBag.Description_MPE = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 10).ToList(), "Specificity", "Specificity");
+                ViewBag.Description_NCS = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 3).ToList(), "Specificity", "Specificity");
+                ViewBag.Description_NES = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 2).ToList(), "Specificity", "Specificity");
+                ViewBag.Description_NRS = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 7).ToList(), "Specificity", "Specificity");
+                ViewBag.Description_PES = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 1).ToList(), "Specificity", "Specificity");
+                ViewBag.Description_RCES = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 9).ToList(), "Specificity", "Specificity");
+                ViewBag.Description_RCS = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 12).ToList(), "Specificity", "Specificity");
+                ViewBag.Description_RES = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 11).ToList(), "Specificity", "Specificity");
+                ViewBag.Description_VBS = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 6).ToList(), "Specificity", "Specificity");
+                ViewBag.Description_AF = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 13).ToList(), "Specificity", "Specificity");
+                ViewBag.Description_AF = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 13).ToList(), "Specificity", "Specificity");
 
                 GetDropDownListValues getDropDownListValues = new GetDropDownListValues();
                 var ValueList = getDropDownListValues.GetLevel1();
@@ -64,7 +74,21 @@ namespace IVEACore.Controllers
             }
             else
             {
-                ViewBag.Id_Farm = new SelectList(_context.Farm.ToArray(), "Id_Farm", "NameFarm", Id_Farm);
+                ViewBag.Id_Farm = new SelectList(_context.Farm.ToArray(), "Id_Farm", "NameFarm", id);
+                ViewBag.Description_CFV = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 8).ToList(), "Specificity", "Specificity", id);
+                ViewBag.Description_DAS = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 4).ToList(), "Specificity", "Specificity", id);
+                ViewBag.Description_DFS = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 5).ToList(), "Specificity", "Specificity", id);
+                ViewBag.Description_MPE = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 10).ToList(), "Specificity", "Specificity", id);
+                ViewBag.Description_NCS = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 3).ToList(), "Specificity", "Specificity", id);
+                ViewBag.Description_NES = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 2).ToList(), "Specificity", "Specificity", id);
+                ViewBag.Description_NRS = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 7).ToList(), "Specificity", "Specificity", id);
+                ViewBag.Description_PES = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 1).ToList(), "Specificity", "Specificity", id);
+                ViewBag.Description_RCES = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 9).ToList(), "Specificity", "Specificity", id);
+                ViewBag.Description_RCS = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 12).ToList(), "Specificity", "Specificity", id);
+                ViewBag.Description_RES = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 11).ToList(), "Specificity", "Specificity", id);
+                ViewBag.Description_VBS = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 6).ToList(), "Specificity", "Specificity", id);
+                ViewBag.Description_AF = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 13).ToList(), "Specificity", "Specificity", id);
+                ViewBag.Description_AF = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 13).ToList(), "Specificity", "Specificity", id);
             }
         }
 
@@ -106,13 +130,13 @@ namespace IVEACore.Controllers
                 return NotFound();
             }
 
+            SetFarmSamplingsViewBag(id);
+
             var farmSampling = await _context.FarmSampling.FindAsync(id);
             if (farmSampling == null)
             {
                 return NotFound();
             }
-
-            SetFarmSamplingsViewBag(id);
 
             return View(farmSampling);
         }
@@ -199,7 +223,7 @@ namespace IVEACore.Controllers
             {
                 CustomSwitches = "--footer-center \"  Created Date: " +
                                 DateTime.Now.Date.ToString("dd/MM/yyyy") + "  Page: [page]/[toPage]\"" +
-                                " --footer-line --footer-font-size \"12\" --footer-spacing 1 --footer-font-name \"Segoe UI\""
+                                " --footer-line --footer-font-size \"8\" --footer-spacing 1 --footer-font-name \"Segoe UI\""
             };
         }
     }
