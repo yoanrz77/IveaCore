@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Rotativa.AspNetCore;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -169,8 +170,12 @@ namespace IVEACore.Controllers
         public ActionResult PrintIndicatorSpecificitiesPDF()
         {
             var indicatorSpecificities = _context.IndicatorSpecificity.ToList();
-            return new ViewAsPdf(indicatorSpecificities);
+            return new ViewAsPdf(indicatorSpecificities)
+            {
+                CustomSwitches = "--footer-center \"  Created Date: " +
+                                DateTime.Now.Date.ToString("dd/MM/yyyy") + "  Page: [page]/[toPage]\"" +
+                                " --footer-line --footer-font-size \"8\" --footer-spacing 1 --footer-font-name \"Segoe UI\""
+            };
         }
-
     }
 }

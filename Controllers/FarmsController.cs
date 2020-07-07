@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Rotativa.AspNetCore;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -154,7 +155,12 @@ namespace IVEACore.Controllers
         public ActionResult PrintFarmPDF()
         {
             var farm = _context.Farm.ToList();
-            return new ViewAsPdf(farm);
+            return new ViewAsPdf(farm)
+            {
+                CustomSwitches = "--footer-center \"  Created Date: " +
+                                DateTime.Now.Date.ToString("dd/MM/yyyy") + "  Page: [page]/[toPage]\"" +
+                                " --footer-line --footer-font-size \"8\" --footer-spacing 1 --footer-font-name \"Segoe UI\""
+            };
         }
     }
 }

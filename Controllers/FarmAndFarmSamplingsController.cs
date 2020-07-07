@@ -3,6 +3,7 @@ using IVEACore.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Rotativa.AspNetCore;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -68,7 +69,12 @@ namespace IVEACore.Controllers
                     result.Add(vm);
                 }
             }
-            return new ViewAsPdf(result);
+            return new ViewAsPdf(result)
+            {
+                CustomSwitches = "--footer-center \"  Created Date: " +
+                                DateTime.Now.Date.ToString("dd/MM/yyyy") + "  Page: [page]/[toPage]\"" +
+                                " --footer-line --footer-font-size \"8\" --footer-spacing 1 --footer-font-name \"Segoe UI\""
+            };
         }
     }
 }
