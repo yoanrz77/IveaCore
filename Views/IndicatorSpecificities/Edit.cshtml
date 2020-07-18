@@ -16,7 +16,8 @@
             <input type="hidden" asp-for="Id_IndicatorSpecificity" />
             <div class="form-group">
                 <label asp-for="Id_Indicator" class="control-label"></label>
-                <input asp-for="Id_Indicator" class="form-control" />
+                @Html.DropDownListFor(model => model.Id_Indicator, ViewBag.Id_Indicator as SelectList, "-- Select --", new { @class = "form-control" })
+                @*<input asp-for="Id_Indicator" class="form-control" />*@
                 <span asp-validation-for="Id_Indicator" class="text-danger"></span>
             </div>
             <div class="form-group">

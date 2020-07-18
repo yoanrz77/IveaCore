@@ -94,6 +94,9 @@ namespace IVEACore.Controllers
             {
                 return NotFound();
             }
+            
+            SetIndicadorSpecifitiesViewBag();
+
             return View(indicatorSpecificity);
         }
 

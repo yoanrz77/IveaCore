@@ -15,7 +15,6 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Id_Farm" class="control-label"></label>
-                @*//This work ok*@
                 @Html.DropDownListFor(model => model.Id_Farm, ViewBag.Id_Farm as SelectList, "-- Select --", new { @class = "form-control" })
                 @*<input asp-for="Id_Farm" class="form-control" />*@
                 <span asp-validation-for="Id_Farm" class="text-danger"></span>

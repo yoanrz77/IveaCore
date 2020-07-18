@@ -15,11 +15,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Id_Indicator" class="control-label"></label>
-
-                @Html.DropDownList("Id_Indicator","Select Indicator")
-                @*@Html.DropDownList("Question1", ViewBag.SelectList as SelectList, "-- Select Question --", new { style = "width: 410px;" })*@
-                @*<input asp-for="Id_Indicator" class="form-control" />*@
-                
+                @Html.DropDownListFor(model => model.Id_Indicator, ViewBag.Id_Indicator as SelectList, "-- Select --", new { @class = "form-control" })
                 <span asp-validation-for="Id_Indicator" class="text-danger"></span>
             </div>
 
