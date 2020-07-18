@@ -52,6 +52,7 @@ namespace IVEACore.Controllers
             if (id == null)
             {
                 ViewBag.Id_Farm = new SelectList(_context.Farm, "Id_Farm", "NameFarm");
+                //ViewBag.Description_CFV = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 8).ToList(), "Id_Indicator", "Specificity");
                 ViewBag.Description_CFV = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 8).ToList(), "Specificity", "Specificity");
                 ViewBag.Description_DAS = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 4).ToList(), "Specificity", "Specificity");
                 ViewBag.Description_DFS = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 5).ToList(), "Specificity", "Specificity");
@@ -69,7 +70,6 @@ namespace IVEACore.Controllers
 
                 GetDropDownListValues getDropDownListValues = new GetDropDownListValues();
                 var ValueList = getDropDownListValues.GetLevel1();
-
                 ViewBag.CFV_Value = new SelectList(ValueList);
             }
             else
@@ -95,9 +95,7 @@ namespace IVEACore.Controllers
         // GET: FarmSamplings/Create
         public IActionResult Create()
         {
-            
             SetFarmSamplingsViewBag(null);
-
             return View();
         }
 

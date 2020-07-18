@@ -12,6 +12,5 @@ namespace IVEACore.IveaFunctions
             string getDescription = Description_CFV;
             return getDescription;
         }
-
     }
 }

@@ -219,6 +219,9 @@ namespace IVEACore.Data.Migrations
                         .HasColumnType("nvarchar(255)")
                         .HasMaxLength(255);
 
+                    b.Property<float>("SpecificityValue")
+                        .HasColumnType("real");
+
                     b.HasKey("Id_IndicatorSpecificity");
 
                     b.ToTable("IndicatorSpecificity");
