@@ -47,12 +47,11 @@ namespace IVEACore.Controllers
         }
 
         //Defining values to use in the dropdownlists
-        private void SetFarmSamplingsViewBag(int? id)
+        private void SetFarmSamplingsViewBag(int? id, FarmSampling farmSampling)
         {
             if (id == null)
             {
                 ViewBag.Id_Farm = new SelectList(_context.Farm, "Id_Farm", "NameFarm");
-                //ViewBag.Description_CFV = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 8).ToList(), "Id_Indicator", "Specificity");
                 ViewBag.Description_CFV = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 8).ToList(), "Specificity", "Specificity");
                 ViewBag.Description_DAS = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 4).ToList(), "Specificity", "Specificity");
                 ViewBag.Description_DFS = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 5).ToList(), "Specificity", "Specificity");
@@ -66,36 +65,86 @@ namespace IVEACore.Controllers
                 ViewBag.Description_RES = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 11).ToList(), "Specificity", "Specificity");
                 ViewBag.Description_VBS = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 6).ToList(), "Specificity", "Specificity");
                 ViewBag.Description_AF = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 13).ToList(), "Specificity", "Specificity");
-                ViewBag.Description_AF = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 13).ToList(), "Specificity", "Specificity");
-
-                GetDropDownListValues getDropDownListValues = new GetDropDownListValues();
-                var ValueList = getDropDownListValues.GetLevel1();
-                ViewBag.CFV_Value = new SelectList(ValueList);
             }
             else
             {
+                GetDropDownListValues getDropDownListValues = new GetDropDownListValues();
+                
+                List<int> ValueList = new List<int>() { };
+
                 ViewBag.Id_Farm = new SelectList(_context.Farm.ToArray(), "Id_Farm", "NameFarm", id);
+
                 ViewBag.Description_CFV = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 8).ToList(), "Specificity", "Specificity", id);
+                var Val_CFV = (int)farmSampling.Value_CFV;
+                ValueList = getDropDownListValues.GetLevel(Val_CFV);
+                ViewBag.Value_CFV = new SelectList(ValueList);
+                
                 ViewBag.Description_DAS = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 4).ToList(), "Specificity", "Specificity", id);
+                var Val_DAS = (int)farmSampling.Value_DAS;
+                ValueList = getDropDownListValues.GetLevel(Val_DAS);
+                ViewBag.Value_DAS = new SelectList(ValueList);
+
                 ViewBag.Description_DFS = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 5).ToList(), "Specificity", "Specificity", id);
+                var Val_DFS = (int)farmSampling.Value_DFS;
+                ValueList = getDropDownListValues.GetLevel(Val_DFS);
+                ViewBag.Value_DFS = new SelectList(ValueList);
+
                 ViewBag.Description_MPE = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 10).ToList(), "Specificity", "Specificity", id);
+                var Val_MPE = (int)farmSampling.Value_MPE;
+                ValueList = getDropDownListValues.GetLevel(Val_MPE);
+                ViewBag.Value_MPE = new SelectList(ValueList);
+
                 ViewBag.Description_NCS = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 3).ToList(), "Specificity", "Specificity", id);
+                var Val_NCS = (int)farmSampling.Value_NCS;
+                ValueList = getDropDownListValues.GetLevel(Val_NCS);
+                ViewBag.Value_NCS = new SelectList(ValueList);
+
                 ViewBag.Description_NES = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 2).ToList(), "Specificity", "Specificity", id);
+                var Val_NES = (int)farmSampling.Value_NES;
+                ValueList = getDropDownListValues.GetLevel(Val_NES);
+                ViewBag.Value_NES = new SelectList(ValueList);
+
                 ViewBag.Description_NRS = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 7).ToList(), "Specificity", "Specificity", id);
+                var Val_NRS = (int)farmSampling.Value_NRS;
+                ValueList = getDropDownListValues.GetLevel(Val_NRS);
+                ViewBag.Value_NRS = new SelectList(ValueList);
+
                 ViewBag.Description_PES = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 1).ToList(), "Specificity", "Specificity", id);
+                var Val_PES = (int)farmSampling.Value_PES;
+                ValueList = getDropDownListValues.GetLevel(Val_PES);
+                ViewBag.Value_PES = new SelectList(ValueList);
+
                 ViewBag.Description_RCES = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 9).ToList(), "Specificity", "Specificity", id);
+                var Val_RCES = (int)farmSampling.Value_RCES;
+                ValueList = getDropDownListValues.GetLevel(Val_RCES);
+                ViewBag.Value_RCES = new SelectList(ValueList);
+
                 ViewBag.Description_RCS = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 12).ToList(), "Specificity", "Specificity", id);
+                var Val_RCS = (int)farmSampling.Value_RCS;
+                ValueList = getDropDownListValues.GetLevel(Val_RCS);
+                ViewBag.Value_RCS = new SelectList(ValueList);
+
                 ViewBag.Description_RES = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 11).ToList(), "Specificity", "Specificity", id);
+                var Val_RES = (int)farmSampling.Value_RES;
+                ValueList = getDropDownListValues.GetLevel(Val_RES);
+                ViewBag.Value_RES = new SelectList(ValueList);
+
                 ViewBag.Description_VBS = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 6).ToList(), "Specificity", "Specificity", id);
+                var Val_VBS = (int)farmSampling.Value_VBS;
+                ValueList = getDropDownListValues.GetLevel(Val_VBS);
+                ViewBag.Value_VBS = new SelectList(ValueList);
+
                 ViewBag.Description_AF = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 13).ToList(), "Specificity", "Specificity", id);
-                ViewBag.Description_AF = new SelectList(_context.IndicatorSpecificity.Where(e => e.Id_Indicator == 13).ToList(), "Specificity", "Specificity", id);
+                var Val_AF = (int)farmSampling.Value_AF;
+                ValueList = getDropDownListValues.GetLevel(Val_AF);
+                ViewBag.Value_AF = new SelectList(ValueList);
             }
         }
 
         // GET: FarmSamplings/Create
         public IActionResult Create()
         {
-            SetFarmSamplingsViewBag(null);
+            SetFarmSamplingsViewBag(null, null);
             return View();
         }
 
@@ -112,9 +161,11 @@ namespace IVEACore.Controllers
             if (ModelState.IsValid)
             {
                 farmSampling.IVEA = (float)farmSampling.IndexValue;
-
+                
                 _context.Add(farmSampling);
+                
                 await _context.SaveChangesAsync();
+                
                 return RedirectToAction(nameof(Index));
             }
             return View(farmSampling);
@@ -128,9 +179,11 @@ namespace IVEACore.Controllers
                 return NotFound();
             }
 
-            SetFarmSamplingsViewBag(id);
-
             var farmSampling = await _context.FarmSampling.FindAsync(id);
+
+            //DropDownList value validations
+            SetFarmSamplingsViewBag(id, farmSampling);
+
             if (farmSampling == null)
             {
                 return NotFound();
@@ -158,6 +211,10 @@ namespace IVEACore.Controllers
             {
                 try
                 {
+                    //DropDownList value validations
+                    SetFarmSamplingsViewBag(id, farmSampling);
+                    
+                    //Calculated Field
                     farmSampling.IVEA = (float)farmSampling.IndexValue;
 
                     _context.Update(farmSampling);
@@ -189,6 +246,7 @@ namespace IVEACore.Controllers
 
             var farmSampling = await _context.FarmSampling
                 .FirstOrDefaultAsync(m => m.Id_FamSampling == id);
+            
             if (farmSampling == null)
             {
                 return NotFound();

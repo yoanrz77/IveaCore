@@ -8,7 +8,7 @@
         $(document).ready(function () {
         console.log('it is ready');
             var descriptions = {
-        '1': ['1', '2', '3'],
+                '1': ['1', '2', '3'],
                 '2': ['4', '5', '6'],
                 '3': ['7', '8', '9'],
                 //'1- (1 a 3 puntos). Agro-ecosistemas con signos de degradación evidentes, poco integrado y con baja calidad de paisaje.': ['4', '5', '6'],

@@ -1,38 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace IVEACore.IveaFunctions
 {
     public class GetDropDownListValues
     {
-        private List<int> ValueList = new List<int>(9) { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        private List<int> ValueList = new List<int>() {};
 
-        public IEnumerable<int> GetLevel1()
+        public List<int> GetLevel(int filedValue)
         {
-            //Filtering the values for Level1 
-            var ValueListFiltered = ValueList.Where(v => v < 4);
+            if (filedValue < 4)
+            {
+                ValueList = new List<int>(3) { 1, 2, 3 };
+            }
+            else if (filedValue > 6)
+            {
+                ValueList = new List<int>(3) { 7, 8, 9 };
+            }
+            else
+            {
+                ValueList = new List<int>(3) { 4, 5, 6 };
+            }
 
-            return ValueListFiltered;
+            return ValueList;
         }
-
-        public IEnumerable<int> GetLevel2()
-        {
-            //Filtering the values for Level2 
-            var ValueListFiltered1 = ValueList.Where(v => v  > 3);
-            var ValueListFiltered = ValueListFiltered1.Where(v => v  < 7 );
-
-            return ValueListFiltered;
-        }
-
-        public IEnumerable<int> GetLevel3()
-        {
-            //Filtering the values for Level3 
-            var ValueListFiltered = ValueList.Where(v => v > 6);
-
-            return ValueListFiltered;
-        }
-
     }
+
+    //    public IEnumerable<int> GetLevel1()
+    //    {
+    //        Filtering the values for Level1
+    //        var ValueListFiltered = ValueList.Where(v => v < 4);
+    //        return ValueListFiltered;
+    //    }
+
 }

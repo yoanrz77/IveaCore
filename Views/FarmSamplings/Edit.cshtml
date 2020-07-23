@@ -33,145 +33,158 @@
             </div>
             <div class="form-group">
                 <label asp-for="Description_CFV" class="control-label"></label>
-                @Html.DropDownListFor(model => model.Description_CFV, ViewBag.Description_CFV as SelectList, "-- Select --", new { @class = "form-control"})
+                @Html.DropDownListFor(model => model.Description_CFV, ViewBag.Description_CFV as SelectList, "", new { @class = "form-control", @onChange = "SelectedValue(this)" })
                 @*<input asp-for="Description_CFV" class="form-control" />*@
                 <span asp-validation-for="Description_CFV" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Value_CFV" class="control-label"></label>
-                <input asp-for="Value_CFV" class="form-control" />
+                @Html.DropDownListFor(model => model.Value_CFV, ViewBag.Value_CFV as SelectList, new { @class = "form-control"})
+                @*<input asp-for="Value_CFV" class="form-control" />*@
                 <span asp-validation-for="Value_CFV" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Description_DAS" class="control-label"></label>
-                @Html.DropDownListFor(model => model.Description_DAS, ViewBag.Description_DAS as SelectList, "-- Select --", new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.Description_DAS, ViewBag.Description_DAS as SelectList, "", new { @class = "form-control", @onChange = "SelectedValue(this)" })
                 @*<input asp-for="Description_DAS" class="form-control" />*@
                 <span asp-validation-for="Description_DAS" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Value_DAS" class="control-label"></label>
-                <input asp-for="Value_DAS" class="form-control" />
+                @Html.DropDownListFor(model => model.Value_DAS, ViewBag.Value_DAS as SelectList, new { @class = "form-control" })
+                @*<input asp-for="Value_DAS" class="form-control" />*@
                 <span asp-validation-for="Value_DAS" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Description_DFS" class="control-label"></label>
-                @Html.DropDownListFor(model => model.Description_DFS, ViewBag.Description_DFS as SelectList, "-- Select --", new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.Description_DFS, ViewBag.Description_DFS as SelectList, "", new { @class = "form-control", @onChange = "SelectedValue(this)" })
                 @*<input asp-for="Description_DFS" class="form-control" />*@
                 <span asp-validation-for="Description_DFS" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Value_DFS" class="control-label"></label>
-                <input asp-for="Value_DFS" class="form-control" />
+                @Html.DropDownListFor(model => model.Value_DFS, ViewBag.Value_DFS as SelectList, new { @class = "form-control" })
+                @*<input asp-for="Value_DFS" class="form-control" />*@
                 <span asp-validation-for="Value_DFS" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Description_MPE" class="control-label"></label>
-                @Html.DropDownListFor(model => model.Description_MPE, ViewBag.Description_MPE as SelectList, "-- Select --", new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.Description_MPE, ViewBag.Description_MPE as SelectList, "", new { @class = "form-control", @onChange = "SelectedValue(this)" })
                 @*<input asp-for="Description_MPE" class="form-control" />*@
                 <span asp-validation-for="Description_MPE" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Value_MPE" class="control-label"></label>
-                <input asp-for="Value_MPE" class="form-control" />
+                @Html.DropDownListFor(model => model.Value_MPE, ViewBag.Value_MPE as SelectList, new { @class = "form-control" })
+                @*<input asp-for="Value_MPE" class="form-control" />*@
                 <span asp-validation-for="Value_MPE" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Description_NCS" class="control-label"></label>
-                @Html.DropDownListFor(model => model.Description_NCS, ViewBag.Description_NCS as SelectList, "-- Select --", new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.Description_NCS, ViewBag.Description_NCS as SelectList, "", new { @class = "form-control", @onChange = "SelectedValue(this)" })
                 @*<input asp-for="Description_NCS" class="form-control" />*@
                 <span asp-validation-for="Description_NCS" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Value_NCS" class="control-label"></label>
-                <input asp-for="Value_NCS" class="form-control" />
+                @Html.DropDownListFor(model => model.Value_NCS, ViewBag.Value_NCS as SelectList, new { @class = "form-control" })
+                @*<input asp-for="Value_NCS" class="form-control" />*@
                 <span asp-validation-for="Value_NCS" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Description_NES" class="control-label"></label>
-                @Html.DropDownListFor(model => model.Description_NES, ViewBag.Description_NES as SelectList, "-- Select --", new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.Description_NES, ViewBag.Description_NES as SelectList, "", new { @class = "form-control", @onChange = "SelectedValue(this)" })
                 @*<input asp-for="Description_NES" class="form-control" />*@
                 <span asp-validation-for="Description_NES" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Value_NES" class="control-label"></label>
-                <input asp-for="Value_NES" class="form-control" />
+                @Html.DropDownListFor(model => model.Value_NES, ViewBag.Value_NES as SelectList, new { @class = "form-control" })
+                @*<input asp-for="Value_NES" class="form-control" />*@
                 <span asp-validation-for="Value_NES" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Description_NRS" class="control-label"></label>
-                @Html.DropDownListFor(model => model.Description_NRS, ViewBag.Description_NRS as SelectList, "-- Select --", new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.Description_NRS, ViewBag.Description_NRS as SelectList, "", new { @class = "form-control", @onChange = "SelectedValue(this)" })
                 @*<input asp-for="Description_NRS" class="form-control" />*@
                 <span asp-validation-for="Description_NRS" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Value_NRS" class="control-label"></label>
-                <input asp-for="Value_NRS" class="form-control" />
+                @Html.DropDownListFor(model => model.Value_NRS, ViewBag.Value_NRS as SelectList, new { @class = "form-control" })
+                @*<input asp-for="Value_NRS" class="form-control" />*@
                 <span asp-validation-for="Value_NRS" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Description_PES" class="control-label"></label>
-                @Html.DropDownListFor(model => model.Description_PES, ViewBag.Description_PES as SelectList, "-- Select --", new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.Description_PES, ViewBag.Description_PES as SelectList, "", new { @class = "form-control", @onChange = "SelectedValue(this)" })
                 @*<input asp-for="Description_PES" class="form-control" />*@
                 <span asp-validation-for="Description_PES" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Value_PES" class="control-label"></label>
-                <input asp-for="Value_PES" class="form-control" />
+                @Html.DropDownListFor(model => model.Value_PES, ViewBag.Value_PES as SelectList, new { @class = "form-control" })
+                @*<input asp-for="Value_PES" class="form-control" />*@
                 <span asp-validation-for="Value_PES" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Description_RCES" class="control-label"></label>
-                @Html.DropDownListFor(model => model.Description_RCES, ViewBag.Description_RCES as SelectList, "-- Select --", new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.Description_RCES, ViewBag.Description_RCES as SelectList, "", new { @class = "form-control", @onChange = "SelectedValue(this)" })
                 @*<input asp-for="Description_RCES" class="form-control" />*@
                 <span asp-validation-for="Description_RCES" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Value_RCES" class="control-label"></label>
-                <input asp-for="Value_RCES" class="form-control" />
+                @Html.DropDownListFor(model => model.Value_RCES, ViewBag.Value_RCES as SelectList, new { @class = "form-control" })
+                @*<input asp-for="Value_RCES" class="form-control" />*@
                 <span asp-validation-for="Value_RCES" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Description_RCS" class="control-label"></label>
-                @Html.DropDownListFor(model => model.Description_RCS, ViewBag.Description_RCS as SelectList, "-- Select --", new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.Description_RCS, ViewBag.Description_RCS as SelectList, "", new { @class = "form-control", @onChange = "SelectedValue(this)" })
                 @*<input asp-for="Description_RCS" class="form-control" />*@
                 <span asp-validation-for="Description_RCS" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Value_RCS" class="control-label"></label>
-                <input asp-for="Value_RCS" class="form-control" />
+                @Html.DropDownListFor(model => model.Value_RCS, ViewBag.Value_RCS as SelectList, new { @class = "form-control" })
+                @*<input asp-for="Value_RCS" class="form-control" />*@
                 <span asp-validation-for="Value_RCS" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Description_RES" class="control-label"></label>
-                @Html.DropDownListFor(model => model.Description_RES, ViewBag.Description_RES as SelectList, "-- Select --", new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.Description_RES, ViewBag.Description_RES as SelectList, "", new { @class = "form-control", @onChange = "SelectedValue(this)" })
                 @*<input asp-for="Description_RES" class="form-control" />*@
                 <span asp-validation-for="Description_RES" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Value_RES" class="control-label"></label>
-                <input asp-for="Value_RES" class="form-control" />
+                @Html.DropDownListFor(model => model.Value_RES, ViewBag.Value_RES as SelectList, new { @class = "form-control" })
+                @*<input asp-for="Value_RES" class="form-control" />*@
                 <span asp-validation-for="Value_RES" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Description_VBS" class="control-label"></label>
-                @Html.DropDownListFor(model => model.Description_VBS, ViewBag.Description_VBS as SelectList, "-- Select --", new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.Description_VBS, ViewBag.Description_VBS as SelectList, "", new { @class = "form-control", @onChange = "SelectedValue(this)" })
                 @*<input asp-for="Description_VBS" class="form-control" />*@
                 <span asp-validation-for="Description_VBS" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Value_VBS" class="control-label"></label>
-                <input asp-for="Value_VBS" class="form-control" />
+                @Html.DropDownListFor(model => model.Value_VBS, ViewBag.Value_VBS as SelectList, new { @class = "form-control" })
+                @*<input asp-for="Value_VBS" class="form-control" />*@
                 <span asp-validation-for="Value_VBS" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Description_AF" class="control-label"></label>
-                @Html.DropDownListFor(model => model.Description_AF, ViewBag.Description_AF as SelectList, "-- Select --", new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.Description_AF, ViewBag.Description_AF as SelectList, "", new { @class = "form-control", @onChange = "SelectedValue(this)" })
                 @*<input asp-for="Description_AF" class="form-control" />*@
                 <span asp-validation-for="Description_AF" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Value_AF" class="control-label"></label>
-                <input asp-for="Value_AF" class="form-control" />
+                @Html.DropDownListFor(model => model.Value_AF, ViewBag.Value_AF as SelectList, new { @class = "form-control" })
+                @*<input asp-for="Value_AF" class="form-control" />*@
                 <span asp-validation-for="Value_AF" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -197,5 +210,6 @@
 </div>
 
 @section Scripts {
+    <script src="~/js/FarmSamplingsDropDownListValidations.js"></script>
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
