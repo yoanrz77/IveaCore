@@ -1006,3 +1006,4 @@ C:\Users\yoanr\source\repos\IVEACore (New json)\obj\Debug\netcoreapp3.1\staticwe
 C:\Users\yoanr\source\repos\IVEACore (New json)\obj\Debug\netcoreapp3.1\IVEACore.dll
 C:\Users\yoanr\source\repos\IVEACore (New json)\obj\Debug\netcoreapp3.1\IVEACore.pdb
 C:\Users\yoanr\source\repos\IVEACore (New json)\obj\Debug\netcoreapp3.1\IVEACore.genruntimeconfig.cache
+C:\Users\yoanr\source\repos\IVEACore\obj\Debug\netcoreapp3.1\Razor\Views\Home\Help.cshtml.g.cs
