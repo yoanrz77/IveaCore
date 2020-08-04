@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace IVEACore.Models
 {
@@ -17,5 +18,9 @@ namespace IVEACore.Models
         [StringLength(255)]
         [DisplayName("Specificity")]
         public string Specificity { get; set; }
+
+        [ForeignKey("Id_Indicator")]
+        public Indicator Indicator { get; set; }
+
     }
 }

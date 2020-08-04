@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace IVEACore.Models
 {
@@ -17,5 +13,10 @@ namespace IVEACore.Models
         [StringLength(255)]
         [DisplayName("Indicator Name")]
         public string NameIndicator { get; set; }
+
+        [Required]
+        [StringLength(10)]
+        [DisplayName("Indicator Code")]
+        public string CodeIndicator { get; set; }
     }
 }

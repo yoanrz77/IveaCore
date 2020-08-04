@@ -14,6 +14,8 @@
     <Compile Remove="Data\Migrations\20200620140845_addIndicatorToDB.Designer.cs" />
     <Compile Remove="Data\Migrations\20200620143636_addIndicatorSpecificityToDB.cs" />
     <Compile Remove="Data\Migrations\20200620143636_addIndicatorSpecificityToDB.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200726192953_addCodeIndicatorToDB.cs" />
+    <Compile Remove="Data\Migrations\20200726192953_addCodeIndicatorToDB.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

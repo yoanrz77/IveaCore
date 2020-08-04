@@ -14,6 +14,9 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.CodeIndicator)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.NameIndicator)
             </th>
             <th></th>
@@ -22,16 +25,19 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NameIndicator)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id_Indicator">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id_Indicator">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id_Indicator">Delete</a>
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodeIndicator)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameIndicator)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id_Indicator">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id_Indicator">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id_Indicator">Delete</a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

@@ -55,7 +55,7 @@ namespace IVEACore.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id_Indicator,NameIndicator")] Indicator indicator)
+        public async Task<IActionResult> Create([Bind("Id_Indicator,NameIndicator,CodeIndicator")] Indicator indicator)
         {
             if (ModelState.IsValid)
             {
@@ -87,7 +87,7 @@ namespace IVEACore.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id_Indicator,NameIndicator")] Indicator indicator)
+        public async Task<IActionResult> Edit(int id, [Bind("Id_Indicator,NameIndicator,CodeIndicator")] Indicator indicator)
         {
             if (id != indicator.Id_Indicator)
             {
